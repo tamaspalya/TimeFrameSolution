@@ -1,0 +1,119 @@
+﻿
+
+.team-details-top-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+/* TEAM-LIST GRID STYLES */
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin-top: 10px;
+}
+
+.grid-item {
+    background-color: #6B4E71;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+    transition: .3s
+}
+
+    .grid-item:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+/*  TEAM DETAILS STYLES */
+
+.manage-team-action-button{
+    width: 5vw;
+    margin-inline: 5px;
+}
+
+.manage-team-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+}
+
+.team-members-container{
+    width: 50%;
+    margin: 15px;
+}
+
+.team-members-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.team-member-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    margin: 5px;
+    background-color: #6B4E71;
+    text-decoration: none;
+    color: white;
+    border: none;
+
+    transition: .3s;
+}
+
+    .team-member-link:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        color: white;
+    }
+
+
+.team-projects-container {
+    width: 50%;
+    margin: 15px;
+}
+
+.team-project-link {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    border-radius: 10px;
+    height: 60px;
+    margin: 5px;
+    background-color: #6B4E71;
+    text-decoration: none;
+    color: white;
+    border: none;
+    transition: .3s;
+}
+
+.team-project-link:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
+}
+/* UTIL STYLES */
+.title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.create-team-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.create-team-form {
+    width: 30vw;
+}

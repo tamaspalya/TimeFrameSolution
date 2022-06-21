@@ -1,0 +1,15 @@
+﻿@model dynamic
+
+@{
+    ViewData["Name"] = Model.Project.ProjectName;
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="text-center">
+    <h1>@Model.Projects.ProjectName</h1>
+    <hr />
+    @Model.Projects.ProjectName
+</div>
+<div style="text-align:right;">
+    <a asp-controller="Home" asp-action="Index">Back to Home</a>
+</div>

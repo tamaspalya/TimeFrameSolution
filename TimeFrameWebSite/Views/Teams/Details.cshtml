@@ -1,0 +1,80 @@
+﻿@using TimeFrameWebAPIClient.DTOs
+@model dynamic
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/teams.css" />
+
+
+<div>
+    <div class="team-details-top-container">
+        <a class="action-button" asp-action="Index">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            Go Back
+        </a>
+        <h1 class="page-title">@Model.Team.TeamName</h1>
+        <div style="display: flex; flex-direction: row;">
+            <a class="action-button manage-team-action-button" asp-action="Edit">Edit</a>
+            <a class="action-button manage-team-action-button" asp-controller="Teams" asp-action="Delete1" asp-route-id="@Model.Team.Id">Delete</a>
+        </div>
+    </div>
+    <hr />
+
+
+    <div class="flex-row-container">
+        <div class="team-members-container">
+            <h1>Team members</h1>
+            <div class="team-members-list">
+                @foreach (dynamic user in @Model.Team.TeamMembers)
+                {
+                    string userInitials = user.FirstName.Substring(0, 1) + user.LastName.Substring(0, 1);
+                    <a class="team-member-link" asp-controller="Accounts" asp-action="Details" asp-route-id="@user.Id">@userInitials.ToUpper()</a>
+                }
+            </div>
+            <hr />
+            <div>
+                <form class="manage-team-form" asp-action="AddMember" asp-route-id="@Model.Team.Id">
+                    <div class="form-group">
+                        <label class="form-label">Invite by email</label>
+                        <input class="form-input" name="email" />
+                        <span class="text-danger"></span>
+                    </div>
+                    <input type="submit" value="Add members" class="action-button" />
+                </form>
+            </div>
+
+            <div>
+                <form class="manage-team-form" asp-action="RemoveMember" asp-route-id="@Model.Team.Id">
+                    <div class="form-group">
+                        <label class="form-label">Remove by email</label>
+                        <input class="form-input" name="email" />
+                        <span class="text-danger"></span>
+                    </div>
+                    <input type="submit" value="Remove member" class="action-button" />
+                </form>
+            </div>
+        </div>
+
+        <div class="team-projects-container">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 10px; align-items: center">
+                <h1>Team Projects</h1>
+                <a class="action-button" asp-controller="Projects" asp-action="Create" asp-route-id="@Model.Team.Id">
+                    Create new Project
+                    <ion-icon name="document-text-outline"></ion-icon>
+                </a>
+             </div>
+            @foreach (dynamic project in @Model.Projects)
+            {
+                <a class="team-project-link" asp-controller="Projects" asp-action="Details" asp-route-id="@project.ID">
+                    <p>@project.ID</p>
+                    <p>@project.ProjectName</p>
+                </a>
+            }
+        </div>
+
+    </div>
+
+</div>

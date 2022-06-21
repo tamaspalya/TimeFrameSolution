@@ -1,0 +1,64 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/teams.css" />
+
+<div>
+    <div class="title-container">
+        <h1 class="page-title">My tasks</h1>
+        <form method="get" asp-action="MyWorkItems">
+            <p>
+                <input type="search" placeholder="Enter task name" value="@ViewData["GetWorkItemDetails"]" name="searchCriteria"
+                       style="width:500px;"/>
+                <input type="submit" value="Search" class="btn btn-primary"/> |
+                <a asp-action="MyWorkItems">Get all tasks</a>
+            </p>
+        </form>
+
+    </div>
+
+
+
+    <hr />
+@*
+    <div class="grid-container">
+        @foreach (dynamic workItem in @Model.WorkItems)
+        {
+            <div class="grid-item">
+                <a style="text-decoration: none; color: white" asp-controller="WorkItems" asp-action="Details" asp-route-id="@workItem.Id">
+                    <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+                        <p style="text-align: left; font-weight: 600; font-size: 25px; margin: 0;">@workItem.WorkItemName Status: @workItem.Status</p>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+*@
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Status</th>
+        <th>Project id</th>
+    </tr>
+
+    @foreach (dynamic workItem in @Model.WorkItems)
+    {
+        <tr>
+            <td>@workItem.WorkItemName</td>
+            <td>@workItem.StartDate</td>
+            <td>@workItem.EndDate</td>
+            <td>@workItem.Status</td>
+            <td>@workItem.ProjectId</td>
+        </tr>
+    }
+</table>
+
+
+</div>

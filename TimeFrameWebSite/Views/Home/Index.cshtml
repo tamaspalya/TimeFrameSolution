@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "TimeFrame";
+}
+
+<h1 class="title">TimeFrame</h1>
+
+<div class="big-container">
+    <div class="small-container left-align">
+        <h1 class="display-4">Welcome</h1>
+        <p>This is TimeFrame, the most modern and awesome project planning app</p>
+    </div>
+
+    <div class="small-container right-align">
+        <h1 class="display-4">About</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged..</p>
+    </div>
+
+    <div class="small-container left-align">
+        <h1 class="display-4">Features</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+    </div>
+</div>
+
+<style>
+    .title{
+        text-align: center;
+        font-size: 70px;
+        font-weight: 600;
+        font-style: italic;
+    }
+
+    .big-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .small-container {
+        padding: 40px;
+        margin: 40px;
+        width: 50%;
+    }
+
+    .left-align{
+        align-self: flex-start;
+    }
+
+    .right-align {
+        align-self: flex-end;
+    }
+</style>

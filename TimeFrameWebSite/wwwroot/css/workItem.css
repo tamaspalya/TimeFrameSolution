@@ -1,0 +1,71 @@
+﻿.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.workItem-top-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.people-assigned-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.people-assigned-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 10px;
+    background-color: #6B4E71;
+    color: white;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.people-assigned-text {
+    margin: 0;
+}
+
+
+.assign-person-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.assign-person-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 10px;
+    background-color: #6B4E71;
+    color: white;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.assign-person-text {
+    margin: 0;
+}
+
+.assign-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.unassign-icon {
+    color: red;
+    width: 32px;
+    height: 32px;
+}

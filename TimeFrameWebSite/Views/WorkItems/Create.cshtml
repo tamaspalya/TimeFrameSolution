@@ -1,0 +1,46 @@
+﻿@model TimeFrameWebAPIClient.DTOs.WorkItemDto
+
+@{
+    ViewData["Title"] = "Create - Work Item";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/workItem.css" />
+
+<div class="container">
+    <div>
+        <a asp-controller="Projects" asp-action="Details" asp-route-id="">@Model</a>
+    </div>
+    <h1 class="page-title">Create New Work Item</h1>
+    <hr />
+
+    <form asp-controller="WorkItems" asp-action="Create" class="form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="WorkItemName" class="form-label">Work Item Name</label>
+            <input asp-for="WorkItemName" class="form-input" />
+            <span asp-validation-for="WorkItemName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="StartDate" class="form-label">Start Date</label>
+            <input type="date" asp-for="StartDate" class="form-input" />
+        </div>
+        <div class="form-group">
+            <label asp-for="EndDate" class="form-label">End Date</label>
+            <input type="date" asp-for="EndDate" class="form-input" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="form-label">Description</label>
+            <input asp-for="Description" class="form-input" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="Create" class="action-button" />
+
+        <span>@ViewBag.ErrorMessage</span>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

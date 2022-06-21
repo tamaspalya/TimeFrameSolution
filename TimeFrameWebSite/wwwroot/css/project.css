@@ -1,0 +1,82 @@
+﻿.create-project-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-details-top-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.manage-project-action-button {
+    width: 5vw;
+    margin-inline: 5px;
+}
+
+    table {
+        margin-top: 30px;
+        width: 100%;
+    }
+tr {
+    color: white;
+    text-align: center;
+    height: 60px;
+    background-color: #95798f;
+}
+
+    tr:nth-child(even) {
+        background-color: #a38799;
+    }
+
+th {
+    background-color: #6B4E71;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+td {
+    color: black;
+    font-size: 18px;
+}
+
+.manage-work-items-container {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+}
+
+.delete-work-item-btn {
+    text-decoration: none;
+    color: white;
+    background-color: darkred;
+    padding: 5px;
+    border-radius: 20px;
+    transition: .4s;
+    margin-left: 5px;
+}
+
+    .delete-work-item-btn:hover {
+        color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.edit-work-item-btn {
+    text-decoration: none;
+    color: white;
+    background-color: grey;
+    padding: 5px;
+    border-radius: 20px;
+    transition: .4s;
+}
+
+    .edit-work-item-btn:hover {
+        color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }

@@ -1,0 +1,70 @@
+﻿@using TimeFrameWebAPIClient.DTOs;
+@model WorkItemDto;
+
+@{
+    ViewData["Title"] = "Work Item Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/workItem.css" />
+
+
+<div style="display: flex; justify-content: center">
+
+    <form asp-controller="WorkItems" asp-action="Edit" class="form" style="width: 70vw">
+
+        @Html.HiddenFor(Model => Model.ProjectId)
+        @Html.HiddenFor(Model => Model.Version)
+        @Html.HiddenFor(Model => Model.PeopleAssigned)
+        <h1>Edit work item</h1>
+
+        <div style="display: flex; flex-direction: row; width: 100%">
+            <div style="width: 100%">
+
+                <div class="form-group">
+                    <label asp-for="WorkItemName" class="form-label">Work Item Name</label>
+                    <input asp-for="WorkItemName" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="StartDate" class="form-label">Start Date</label>
+                    <input asp-for="StartDate" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="EndDate" class="form-label">End Date</label>
+                    <input asp-for="EndDate" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <input asp-for="Description" class="form-input" />
+                </div>
+
+                <div style="display: flex; flex-direction: row; width: 100%;">
+                    <div class="form-group">
+                        <label asp-for="Status" class="form-label">Status</label>
+                        @Html.DropDownListFor(Model => Model.Status, new SelectList(Enum.GetValues(typeof(Status))), new { @class = "form-dropdown" })
+
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Priority" class="form-label">Priority</label>
+                        @Html.DropDownListFor(Model => Model.Priority, new SelectList(Enum.GetValues(typeof(Priority))), new { @class = "form-dropdown" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Milestone" class="form-label">Milestone?</label>
+                    <input type="checkbox" asp-for="Milestone" />
+                </div>
+            </div>
+        </div>
+        <span class="error-message-span">@ViewBag.ErrorMessage</span>
+        <div style="display: flex; flex-direction: row">
+            <input type="submit" value="Save" class="action-button" style="width: 10vw; margin-inline: 25px" />
+            <a asp-action="Edit" class="action-button" style="width: 10vw">Refresh</a>
+        </div>
+    </form>
+
+    </div>

@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Projects";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/project.css" />
+
+<div>
+    <h1>PROJECTS</h1>
+
+    @foreach (dynamic project in Model.Projects)
+    {
+        <p>@project.ID -- @project.ProjectName</p>
+    }
+
+    }
+    <a asp-controller="Projects" asp-action="Details" asp-route-id="167">details/167</a>
+</div>

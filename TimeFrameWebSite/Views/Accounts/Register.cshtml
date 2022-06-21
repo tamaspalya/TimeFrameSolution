@@ -1,0 +1,44 @@
+@model TimeFrameAPI.DTOs.RegisterDto
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<link rel="stylesheet" href="~/css/login.css" />
+
+<div class="container">
+    <h2 class="login-text">Register</h2>
+    <form method="post" class="form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <ion-icon name="mail-outline" class="register-icons"></ion-icon>
+            <input asp-for="Email" class="form-input" placeholder="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <ion-icon name="person-outline" class="register-icons"></ion-icon>
+            <input asp-for="FirstName" class="form-input" placeholder="First Name"/>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <ion-icon name="person-outline"  class="register-icons"></ion-icon>
+            <input asp-for="LastName" class="form-input" placeholder="Last Name" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <ion-icon name="lock-closed-outline" class="register-icons"></ion-icon>
+            <input asp-for="Password" class="form-input" type="password" required placeholder="Password"/>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <ion-icon name="lock-closed-outline" class="register-icons"></ion-icon>
+            <input for="Password" class="form-input" name="confirm_password" type="password" required placeholder="Confirm Password" />
+            <span for="Password" class="text-danger"></span>
+        </div>
+        <span class="error-message-span">@ViewBag.ErrorMessage</span>
+        <input type="submit" value="Register" class="action-button" />
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

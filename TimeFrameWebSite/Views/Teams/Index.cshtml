@@ -1,0 +1,40 @@
+﻿@using TimeFrameWebAPIClient.DTOs
+@model dynamic
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/teams.css" />
+
+<div>
+    <div class="title-container">
+        <h1 class="page-title">My teams</h1>
+        <a class="action-button" asp-action="Create">
+            Create new team
+            <ion-icon name="create-outline"></ion-icon>
+        </a>
+    </div>
+    <hr />
+
+    <div class="grid-container">
+        @foreach (dynamic team in @Model.Teams)
+        {
+            <div class="grid-item">
+                <a style="text-decoration: none; color: white" asp-controller="Teams" asp-action="Details" asp-route-id="@team.Id">
+                    <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+                        <p style="text-align: left; font-weight: 600; font-size: 25px; margin: 0;">@team.TeamName</p>
+                            <div style="display: flex; flex-direction: row;">
+                            <p>Team members: </p>
+                            @foreach (var teamMember in team.TeamMembers)
+                            {
+                                <p style="margin-inline: 5px;">@teamMember.FirstName</p>
+                            }
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,43 @@
+USE dmai0920_1086318
+GO
+
+/****** Object:  Table [dbo].[Task]    Script Date: 24/11/2021 11:17:07 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[WorkItem](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ProjectId] [int] NOT NULL,
+	[TaskName] [nvarchar](100) NOT NULL,
+	[StartDate] [date] NOT NULL,
+	[EndDate] [date] NOT NULL,
+	[Status] [int] NOT NULL,
+	[Priority] [int] NOT NULL,
+	[Description] [nvarchar](500) NOT NULL,
+	[Milestone] [bit] NOT NULL,
+ CONSTRAINT [PK_WorkItem] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Index [IX_Task]    Script Date: 24/11/2021 11:17:07 ******/
+CREATE UNIQUE NONCLUSTERED INDEX [IX_WorkItem] ON [dbo].[WorkItem]
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[WorkItem]  WITH CHECK ADD  CONSTRAINT [FK_WorkItem_Project] FOREIGN KEY([ProjectId])
+REFERENCES [dbo].[Project] ([Id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[WorkItem] CHECK CONSTRAINT [FK_WorkItem_Project]
+GO
+
